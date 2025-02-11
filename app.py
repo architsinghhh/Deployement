@@ -57,7 +57,7 @@ def serve_css(filename):
 # Serve JavaScript and JSON files from 'Javascript&JSON' folder
 @app.route('/Javascript&JSON/<path:filename>')
 def serve_js_json(filename):
-    return send_from_directory(os.path.join(os.getcwd(), 'Javascript&JSON'), filename)
+    return send_from_directory('Javascript&JSON', filename)
 
 # Serve loginpage_new.html from the CSS folder
 @app.route('/login')
