@@ -68,6 +68,10 @@ def login_page():
 def home():
     return send_from_directory(os.getcwd(), "index.html")  # Serve index.html from root
 
+@app.route('/static/<path:filename>')
+def serve_static(filename):
+    return send_from_directory(os.path.join(os.getcwd(), 'static'), filename)
+
 @app.route('/send-inquiry', methods=['POST'])
 def send_inquiry():
     data = request.get_json()
