@@ -50,6 +50,10 @@ def serve_assets(filename):
 def serve_frontend(filename):
     return send_from_directory(os.path.join(os.getcwd(), 'frontend'), filename)
 
+@app.route('/login')
+def login_page():
+    return send_from_directory(os.path.join(os.getcwd(), 'CSS'), 'loginpage_new.html')
+
 # Serve the 'css' folder
 @app.route('/css/<path:filename>')
 def serve_css(filename):
