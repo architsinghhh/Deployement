@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_file, send_from_directory
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from pymongo import MongoClient
 from werkzeug.security import check_password_hash, generate_password_hash
