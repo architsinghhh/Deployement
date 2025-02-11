@@ -3,6 +3,5 @@ flask_jwt_extended
 pymongo
 werkzeug
 PyJWT
-bson
 flask_cors
 flask_mail
