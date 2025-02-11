@@ -72,6 +72,10 @@ def home():
 def serve_static(filename):
     return send_from_directory(os.path.join(os.getcwd(), 'static'), filename)
 
+@app.route('/model')
+def get_model():
+    return send_from_directory('.', 'Resonance.ply')  # Serve from root
+
 @app.route('/send-inquiry', methods=['POST'])
 def send_inquiry():
     data = request.get_json()
