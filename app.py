@@ -72,9 +72,6 @@ def home():
 def serve_static(filename):
     return send_from_directory(os.path.join(os.getcwd(), 'static'), filename)
 
-@app.route('/model')
-def get_model():
-    return send_from_directory('.', 'Resonance.ply')  # Serve from root
 
 @app.route('/send-inquiry', methods=['POST'])
 def send_inquiry():
@@ -331,26 +328,17 @@ from bson.objectid import ObjectId
 def get_model(project_id):
     try:
         print("get model function hit")
-        # Find the project by ID
         print(project_id)
-        project = projects_collection.find_one({'_id': ObjectId(project_id)})
-        if not project:
-            return jsonify({'message': 'Project not found'}), 404
 
-        # Check if the project has a model file
-        if 'model' not in project:
-            return jsonify({'message': 'No model file associated with this project'}), 404
+        # Serve the model directly from the root directory
+        model_filename = "Resonance.ply"  # Change this if filename varies
+        model_path = os.path.join(os.getcwd(), model_filename)
 
-        # Retrieve the model file from GridFS using the model ID
-        model_file_id = project['model']  # This is the ID of the model file
-        model_file = fs.get(ObjectId(model_file_id))  # Get the model file from GridFS
+        if not os.path.exists(model_path):
+            return jsonify({'message': 'Model file not found in the root directory'}), 404
 
-        if not model_file:
-            return jsonify({'message': 'Model file not found'}), 404
+        return send_from_directory(os.getcwd(), model_filename, as_attachment=True)
 
-        # Serve the model file (e.g., .glb, .obj, .ply) to the frontend
-        return send_file(model_file, mimetype='application/octet-stream', as_attachment=True, download_name=model_file.filename)
-    
     except Exception as e:
         return jsonify({'message': str(e)}), 500
 
