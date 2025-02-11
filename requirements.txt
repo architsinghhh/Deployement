@@ -6,4 +6,3 @@ PyJWT
 bson
 flask_cors
 flask_mail
-gridfs
