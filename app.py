@@ -50,14 +50,19 @@ def serve_assets(filename):
 def serve_frontend(filename):
     return send_from_directory(os.path.join(os.getcwd(), 'frontend'), filename)
 
+@app.route('/CSS/<path:filename>')
+def serve_css(filename):
+    return send_from_directory(os.path.join(os.getcwd(), 'CSS'), filename)
+
+# Serve JavaScript and JSON files from 'Javascript&JSON' folder
+@app.route('/Javascript&JSON/<path:filename>')
+def serve_js_json(filename):
+    return send_from_directory(os.path.join(os.getcwd(), 'Javascript&JSON'), filename)
+
+# Serve loginpage_new.html from the CSS folder
 @app.route('/login')
 def login_page():
     return send_from_directory(os.path.join(os.getcwd(), 'CSS'), 'loginpage_new.html')
-
-# Serve the 'css' folder
-@app.route('/css/<path:filename>')
-def serve_css(filename):
-    return send_from_directory(os.path.join(os.getcwd(), 'css'), filename)
 
 @app.route('/')
 def home():
