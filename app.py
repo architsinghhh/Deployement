@@ -42,9 +42,18 @@ mail = Mail(app)
 RECEIVER_EMAIL = 'kuttagta5@gmail.com'  # Replace with the email address you want to receive inquiries
 
 @app.route('/theme_rtl/assets/<path:filename>')
-def serve_theme_assets(filename):
+def serve_assets(filename):
     return send_from_directory(os.path.join(os.getcwd(), 'theme_rtl/assets'), filename)
 
+# Serve the entire 'frontend' folder
+@app.route('/frontend/<path:filename>')
+def serve_frontend(filename):
+    return send_from_directory(os.path.join(os.getcwd(), 'frontend'), filename)
+
+# Serve the 'css' folder
+@app.route('/css/<path:filename>')
+def serve_css(filename):
+    return send_from_directory(os.path.join(os.getcwd(), 'css'), filename)
 
 @app.route('/')
 def home():
