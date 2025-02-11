@@ -41,6 +41,10 @@ mail = Mail(app)
 # Fixed recipient email address
 RECEIVER_EMAIL = 'kuttagta5@gmail.com'  # Replace with the email address you want to receive inquiries
 
+@app.route('/')
+def home():
+    return send_from_directory(os.getcwd(), "index.html")  # Serve index.html from root
+
 @app.route('/send-inquiry', methods=['POST'])
 def send_inquiry():
     data = request.get_json()
