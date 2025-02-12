@@ -10,7 +10,7 @@ body {
 
 .container {
   height: 200vh;
-  background-image: url(/static/login.jpg);
+  background-image: url(/static/Login.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
