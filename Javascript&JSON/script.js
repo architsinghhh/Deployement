@@ -35,12 +35,13 @@ document.onkeydown = (evt) => {
 };
 
 
+
 const redirectToIndexBtn = document.getElementById('redirectToIndex');
 
-if (redirectToIndexBtn) {
-    redirectToIndexBtn.addEventListener('click', () => {
-        window.location.href = '../index.html';
-    });
+// Add an event listener to the button
+redirectToIndexBtn.addEventListener('click', () => {
+  window.location.href = '../index.html';
+});
 
 // Toggle password visibility
 loginBtn.addEventListener('click', async function () {
@@ -56,7 +57,7 @@ loginBtn.addEventListener('click', async function () {
   }
 
   try {
-        const response = await fetch('http://127.0.0.1:5000/login', {           
+        const response = await fetch('https://https://deployement-2-zi6r.onrender.com/login', {
         method: 'POST',
           headers: {
               'Content-Type': 'application/json',
