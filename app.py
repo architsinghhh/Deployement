@@ -509,6 +509,8 @@ def save_drone_annotations():
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Get the port from Render, default to 5000
-    app.run(host='0.0.0.0', port=port)  # Bind to all interfaces
+    port = int(os.environ.get("PORT", 5000))
+    print(f"Starting server on port {port}...")  # Debugging log
+    app.run(host='0.0.0.0', port=port)
+
 
