@@ -34,12 +34,14 @@ document.onkeydown = (evt) => {
     if (evt.keyCode === 27) closeModal();
 };
 
+const loginBtn = document.querySelector('#loginBtn'); // Assuming there's a button with id="loginBtn"
+
 const redirectToIndexBtn = document.getElementById('redirectToIndex');
 
-// Add an event listener to the button
-redirectToIndexBtn.addEventListener('click', () => {
-  window.location.href = '../index.html';
-});
+if (redirectToIndexBtn) {
+    redirectToIndexBtn.addEventListener('click', () => {
+        window.location.href = '../index.html';
+    });
 
 // Toggle password visibility
 loginBtn.addEventListener('click', async function () {
