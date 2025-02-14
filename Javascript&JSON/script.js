@@ -38,7 +38,7 @@ const redirectToIndexBtn = document.getElementById('redirectToIndex');
 
 // Add an event listener to the button
 redirectToIndexBtn.addEventListener('click', () => {
-  window.location.href = 'index.html';
+  window.location.href = '../index.html';
 });
 
 // Toggle password visibility
