@@ -58,7 +58,7 @@ loginBtn.addEventListener('click', async function () {
 
   try {
       const url = "https://deployement-2-zi6r.onrender.com"
-        const response = await fetch('https://deployement-2-zi6r.onrender.com/login', {
+        const response = await fetch('https://deployement-2-zi6r.onrender.com', {
         method: 'POST',
           headers: {
               'Content-Type': 'application/json',
