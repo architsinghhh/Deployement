@@ -40,7 +40,7 @@ const redirectToIndexBtn = document.getElementById('redirectToIndex');
 
 // Add an event listener to the button
 redirectToIndexBtn.addEventListener('click', () => {
-  window.location.href = 'index.html';
+  window.location.href = 'https://deployement-2-zi6r.onrender.com/';
 });
 
 // Toggle password visibility
