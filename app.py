@@ -294,7 +294,7 @@ def get_project_images(project_id):
             images.append({
                 'id': str(image_data._id),  # Access _id directly
                 'filename': image_data.filename,
-                'url': f"http://127.0.0.1:5000/images/{image_id}",  # Create the URL for the image
+                'url': f"https://deployement-2-zi6r.onrender.com/images/{image_id}",  # Create the URL for the image
                 'content_type': image_data.content_type,
                 'upload_date': image_data.upload_date.isoformat()
             })
